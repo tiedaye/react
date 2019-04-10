@@ -1,0 +1,23 @@
+li{
+    list-style: none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.movieList{
+    margin:50px 0
+}
+.movieLi{
+    display: flex;
+    align-items: center;
+}
+.movieImg{
+    width: 80px;
+    height: 80px;
+    padding-right:50px;
+}
+img{
+    width: 100%;
+    height: 100%;
+}

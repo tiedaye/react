@@ -4,7 +4,6 @@ export default class Header extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            text: 'change from child'
         }
     }
     change(params) {
@@ -12,11 +11,12 @@ export default class Header extends Component {
       }
     render() {
         var style ={
-            background:this.props.list[0].bgColor
+            background:this.props.list.bgColor,
+            color:'#fff'
         }
         return (
         <div className='header' style={style} onClick={this.change.bind(this,this.state.text)}>
-            {this.props.data}
+            {this.props.list.name}
         </div>
         )
     }
