@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div onclick="div2()">
+        <div onclick="div1(this)">3333</div>
+    </div>
+</body>
+<script>
+ function div1(){
+     console.log(event.target)
+    //  console.log(e)
+     window.event.stopPropagation()
+//    e.cancelBubble = true
+//    event.stopPropagation()
+ }
+ function div2() {
+    console.log(event.target)
+    console.log(222)
+ }
+
+</script>
+</html>

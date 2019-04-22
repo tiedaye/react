@@ -1,7 +1,10 @@
 import React from 'react'
+import Movie from '../views/movie'
+import Book from '../views/book';
+import Photos from '../views/photos';
+import { BrowserRouter as Router ,Route ,withRouter} from 'react-router-dom'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Movie from './movie'
 // const App = () => (
 //     <div>This is Home</div>
 // )
@@ -9,59 +12,46 @@ class Home extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            name:'Movie',
             data: 'change',
-            movieList: [],
             index: 0,
             list:[
                 {
                     name:'Movie',
-                    bgColor: '#5ccceb'
+                    bgColor: '#5ccceb',
+                    path: ''
                 },
                 {
                     name:'Books',
-                    bgColor: '#d06a60'
+                    bgColor: '#d06a60',
+                    path: '/book',
                 },
                 {
                     name:'Photos',
-                    bgColor: '#6ec891'
+                    bgColor: '#6ec891',
+                    path: '/photos'
                 }
             ]
         }
-    }
-    parentChange (pramas) {
-        this.setState({
-            data: pramas
-        })
     }
     changeColor (index) {
         this.setState({
             index:index
         })
     }
-    componentWillMount(){
-        fetch('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?start='+this.state.movieList.length+ '&count=5', {
-        }).then((res)=>{
-          return res.json()
-        }).then((data)=>{
-            this.setState({
-                movieList: [...this.state.movieList,...data.subjects]
-            })
-            console.log(this.state.movieList)
-        }).catch((e)=>{
-            console.log(e)
-        })
-  }
     render () {
         var style = ({
             position:'relative'
         })
         return(
-            <div style={style}>
-                <Header list={this.state.list[this.state.index]} parentChange={this.parentChange.bind(this)}></Header>
-                <Movie movieList={this.state.movieList}></Movie>
-                <Footer list={this.state.list} bgColor={this.state.index} changeColor={this.changeColor.bind(this)}></Footer>
-            </div>
+            <Router>
+                <div style={style}>
+                    <Header list={this.state.list[this.state.index]}></Header>
+                    <Route exact path='/' component={Movie}/>
+                    <Route path='/book' component={Book}/>
+                    <Route path='/photos' component={Photos}/> 
+                    <Footer list={this.state.list} bgColor={this.state.index} changeColor={this.changeColor.bind(this)}></Footer>
+                </div>
+            </Router>
         )
     }
 }
