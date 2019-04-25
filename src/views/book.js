@@ -4,7 +4,7 @@ export default class Book extends Component {
   render() {
     return (
       <div className='book'>
-        book
+       This is my book
       </div>
     )
   }
