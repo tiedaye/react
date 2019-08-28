@@ -1,3 +1,14 @@
 .photos{
     padding-top:50px;
 }
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: 200px;
+    line-height: 200px;
+    background: #4e9e7f;
+    overflow: hidden;
+  }
+  
+  .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }

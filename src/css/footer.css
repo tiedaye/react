@@ -11,10 +11,13 @@
 .footer-module{
     width: 33%;
     height:100%;
-    color: #fff;
+    color: #000;
     text-align: center;
     line-height: 50px;
 }
 a{
     text-decoration: none;
+}
+a:hover{
+    color: #fff;
 }
